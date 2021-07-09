@@ -24,15 +24,15 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact>
-            {loggedIn ? (
-              <Tickets />
-            ) : (
-              <Redirect to={{ pathname: '/login', search: '?redirect=/' }} />
-            )}
-          </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          {!loggedIn && (
+            <Redirect to={{ pathname: '/login', search: '?redirect=/' }} />
+          )}
+
+          <Route path="/" exact>
+            <Tickets />
           </Route>
         </Switch>
       </Router>
