@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import TicketsItem from './TicketsItem';
 import { getFlightsAsync } from './ticketsSlice';
 
@@ -42,7 +41,6 @@ function Tickets() {
 
   return (
     <div>
-      tickets <Link to="/login">login</Link>
       <input value={filter} onChange={e => setFilter(e.target.value)} />
       {flightsArray.map(flight => (
         <TicketsItem
