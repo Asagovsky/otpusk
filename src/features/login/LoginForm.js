@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import * as queryString from 'query-string';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 import { loginUser } from './loginSlice';
 import styles from './login.module.css';
 
@@ -15,18 +16,19 @@ const LoginSchema = Yup.object().shape({
     .required("Це поле обов'язкове"),
 });
 
-function LoginForm() {
+const LoginForm = withRouter(({ location }) => {
   const error = useSelector(state => state.auth.error);
   const message = useSelector(state => state.auth.message);
-  const token = useSelector(state => state.auth.token);
+  const loggedIn = useSelector(state => state.auth.loggedIn);
   const dispatch = useDispatch();
   const history = useHistory();
+  const params = queryString.parse(location.search);
 
   useEffect(() => {
-    if (token) {
-      history.push('/');
+    if (loggedIn) {
+      history.push(params.redirect || '/');
     }
-  }, [token]);
+  }, [loggedIn]);
 
   return (
     <div>
@@ -34,6 +36,7 @@ function LoginForm() {
         initialValues={{
           email: '',
           password: '',
+          rememberMe: false,
         }}
         enableReinitialize
         validationSchema={LoginSchema}
@@ -53,6 +56,11 @@ function LoginForm() {
             {errors.password && touched.password ? (
               <div>{errors.password}</div>
             ) : null}
+            <label htmlFor="rememberMe">
+              <Field name="rememberMe" id="rememberMe" type="checkbox" />
+              Запам&apos;ятати мене
+            </label>
+
             <button className={styles.loginInput} type="submit">
               Ввійти
             </button>
@@ -60,8 +68,13 @@ function LoginForm() {
           </Form>
         )}
       </Formik>
+      {params.redirect && (
+        <div className={styles.header}>
+          Для доступу до даних вам потрібно виконати вхід в аккаунт
+        </div>
+      )}
     </div>
   );
-}
+});
 
 export default LoginForm;

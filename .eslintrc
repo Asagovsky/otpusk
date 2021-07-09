@@ -5,7 +5,7 @@
     "allowImportExportEverywhere": false,
     "codeFrame": false
   },
-  "extends": ["airbnb", "prettier"],
+  "extends": ["airbnb", "prettier", "plugin:react/recommended"],
   "env": {
     "browser": true,
     "jest": false
@@ -17,6 +17,23 @@
     "react/prop-types": ["warn"],
     "no-return-assign": ["off"],
     "no-param-reassign": ["off"],
-    "no-use-before-define": ["off"]
+    "no-use-before-define": ["off"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ]
   }
 }
