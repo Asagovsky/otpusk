@@ -22,12 +22,16 @@ export const getFlightsAsync = createAsyncThunk(
 const ticketsReducer = createSlice({
   name: 'tickets',
   initialState,
-  reducers: {},
+  reducers: {
+    toInitial: () => initialState,
+  },
   extraReducers: builder => {
     builder.addCase(getFlightsAsync.fulfilled, (state, { payload }) => {
       state.flights = payload;
     });
   },
 });
+
+export const { toInitial } = ticketsReducer.actions;
 
 export default ticketsReducer.reducer;
