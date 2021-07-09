@@ -7,7 +7,6 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await authenticateUser(email, password);
       const parsedResponse = await response.json();
-      console.log(parsedResponse);
       if (rememberMe && localStorage) {
         localStorage.setItem('token', parsedResponse.token);
       }

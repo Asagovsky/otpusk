@@ -11,6 +11,7 @@ import { validateAndAuth } from './features/login/loginSlice';
 import Login from './features/login/Login';
 import Tickets from './features/tickets/Tickets';
 import './app.css';
+import Header from './features/common/Header';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Router>
         <Switch>
           <Route path="/login">
