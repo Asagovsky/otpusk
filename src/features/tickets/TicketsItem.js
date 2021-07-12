@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 function TicketsItem({ date, name }) {
   return (
-    <div>
-      <p>{name}</p>
-      <p>{date}</p>
+    <div className="ticket">
+      <p className="title">{name}</p>
+      <p className="date">{date}</p>
     </div>
   );
 }

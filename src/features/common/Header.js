@@ -14,20 +14,23 @@ function Header() {
   };
 
   return (
-    <div className="hd">
-      {loggedIn && (
-        <div>
-          <span>{email}</span>
-          <button
-            type="button"
-            onClick={() => {
-              logoutApp();
-            }}
-          >
-            logout
-          </button>
-        </div>
-      )}
+    <div className="container">
+      <header>
+        {loggedIn && (
+          <>
+            <span className="email">{email}</span>
+            <button
+              className="logout"
+              type="button"
+              onClick={() => {
+                logoutApp();
+              }}
+            >
+              logout
+            </button>
+          </>
+        )}
+      </header>
     </div>
   );
 }

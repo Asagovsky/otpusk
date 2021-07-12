@@ -10,7 +10,7 @@ import { validateAndAuth } from './features/login/loginSlice';
 // import { validateToken, getUser } from './app/sdk';
 import Login from './features/login/Login';
 import Tickets from './features/tickets/Tickets';
-import './app.css';
+import './app.scss';
 import Header from './features/common/Header';
 
 function App() {

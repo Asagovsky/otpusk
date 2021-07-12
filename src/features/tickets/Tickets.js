@@ -40,16 +40,23 @@ function Tickets() {
   }, []);
 
   return (
-    <div>
-      <input value={filter} onChange={e => setFilter(e.target.value)} />
-      {flightsArray.map(flight => (
-        <TicketsItem
-          key={flight.key}
-          name={flight.company.name}
-          date={flight.date}
-        />
-      ))}
-    </div>
+    <section className="container">
+      <input
+        className="searchInput"
+        value={filter}
+        onChange={e => setFilter(e.target.value)}
+        placeholder="Пошук"
+      />
+      <div className="tickets">
+        {flightsArray.map(flight => (
+          <TicketsItem
+            key={flight.key}
+            name={flight.company.name}
+            date={flight.date}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
 

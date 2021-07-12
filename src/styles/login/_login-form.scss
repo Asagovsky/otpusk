@@ -1,0 +1,54 @@
+.header {
+  text-align: center;
+  font-family: $robotoBold;
+  text-transform: uppercase;
+  color: rgb(65, 65, 65);
+}
+
+/* FORM */
+
+.loginForm {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.loginInput {
+  display: block;
+  padding: 10px 20px;
+  //   border: 1px solid rgb(204, 204, 204);
+  border: none;
+  box-shadow: 0 0px 4px -2px gray;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 0 1px 3px -2px gray;
+  }
+  &.submit {
+    background-color: $green;
+    color: white;
+    &:hover {
+      box-shadow: 0 1px 5px -2px gray;
+    }
+  }
+}
+
+.warn {
+  color: $red;
+  font-size: 10px;
+  margin-bottom: 12px;
+}
+
+.additional {
+  color: gray;
+  font-family: $robotoThin;
+  font-size: 14px;
+}
+input[type='checkbox'] {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
