@@ -9,7 +9,7 @@
 
 .loginForm {
   display: block;
-  width: 400px;
+  width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -51,4 +51,11 @@
 input[type='checkbox'] {
   margin-right: 10px;
   margin-bottom: 20px;
+}
+
+@media screen and (min-width: 576px) {
+  .loginForm {
+    display: block;
+    width: 400px;
+  }
 }
